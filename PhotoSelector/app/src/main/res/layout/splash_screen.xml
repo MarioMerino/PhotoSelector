@@ -1,24 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff">
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="496px"
+        android:layout_height="568px"
         android:id="@+id/imageSplash"
-        android:src="@drawable/photoselector_logo"
+        android:src="@drawable/photo_selector_logo2"
+        android:layout_marginTop="23dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="37dp" />
+        android:layout_centerHorizontal="true" />
 
-    <ProgressBar
-        style="?android:attr/progressBarStyleLarge"
+    <com.wang.avi.AVLoadingIndicatorView
+        android:id="@+id/avloadingIndicatorView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/progressBar5"
+        android:visibility="visible"
+        app:indicator="BallZigZagDeflect"
+        app:indicator_color="#FF078A7E"
+        android:layout_marginTop="78dp"
+        android:focusable="false"
         android:layout_below="@+id/imageSplash"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="35dp" />
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

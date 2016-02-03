@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
 
 import java.util.Timer;
@@ -32,7 +31,7 @@ public class SplashScreenActivity extends Activity {
             @Override
             public void run() {
                 // Empezar la nueva actividad
-                Intent mainIntent = new Intent().setClass(SplashScreenActivity.this, MainActivity.class);
+                Intent mainIntent = new Intent().setClass(SplashScreenActivity.this, LoginActivity.class);
                 startActivity(mainIntent);
 
                 // Cerramos la actividad para que el usuario no pueda regresar a esta actividad presionando el boton Atrás
