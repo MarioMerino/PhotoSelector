@@ -19,7 +19,7 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Guardar"
+        android:text="@string/btn_guardar"
         android:id="@+id/btnGuardar"
         android:layout_marginStart="60dp"
         android:layout_alignParentBottom="true"
@@ -29,7 +29,7 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cancelar"
+        android:text="@string/btn_cancelar"
         android:id="@+id/btnCancelar"
         android:layout_marginEnd="63dp"
         android:layout_alignParentBottom="true"
@@ -112,10 +112,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imagePassword2"
-        android:layout_alignTop="@+id/edtPassword2"
+        android:src="@drawable/lock"
+        android:layout_below="@+id/imagePassword1"
         android:layout_alignStart="@+id/imagePassword1"
-        android:layout_toStartOf="@+id/edtPassword2"
-        android:layout_above="@+id/btnGuardar"
-        android:src="@drawable/lock" />
+        android:layout_alignBottom="@+id/edtPassword2" />
 
 </RelativeLayout>

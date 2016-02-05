@@ -18,54 +18,11 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/edtEmail1"
-        android:layout_below="@+id/imageMain"
-        android:layout_alignEnd="@+id/imageMain"
-        android:layout_alignStart="@+id/imageMain"
-        android:hint="Correo Electrónico"
-        android:focusable="true"
-        android:textColorHint="#888871" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:id="@+id/edtPassword"
-        android:layout_below="@+id/edtEmail1"
-        android:layout_alignStart="@+id/edtEmail1"
-        android:layout_alignEnd="@+id/edtEmail1"
-        android:hint="Contraseña"
-        android:textColorHint="#888871" />
-
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Recordar Contraseña"
-        android:id="@+id/passRemember"
-        android:checked="false"
-        android:layout_below="@+id/btnLogin"
-        android:layout_alignStart="@+id/btnLogin"
-        android:textColor="#888871" />
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="235px"
-        android:layout_height="80px"
-        android:text="Iniciar Sesión"
-        android:id="@+id/btnLogin"
-        android:layout_below="@+id/edtPassword"
-        android:layout_alignStart="@+id/edtPassword"
-        android:layout_alignEnd="@+id/edtPassword" />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Registrarse"
+        android:text="@string/btn_registrar"
         android:clickable="true"
         android:id="@+id/btnRegistrar"
         android:textColor="#000000"
@@ -74,22 +31,64 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 
-    <ImageView
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imagePassword"
-        android:src="@drawable/lock"
-        android:layout_alignTop="@+id/edtPassword"
-        android:layout_toStartOf="@+id/edtPassword"
-        android:layout_above="@+id/btnLogin" />
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:id="@+id/edtEmail"
+        android:layout_below="@+id/imageMain"
+        android:layout_alignEnd="@+id/imageMain"
+        android:layout_alignStart="@+id/imageMain"
+        android:hint="Correo Electrónico" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/edtPassword"
+        android:layout_below="@+id/edtEmail"
+        android:layout_alignStart="@+id/edtEmail"
+        android:layout_alignEnd="@+id/edtEmail"
+        android:hint="Contraseña" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Recordar Contraseña"
+        android:id="@+id/checkPassword"
+        android:layout_below="@+id/edtPassword"
+        android:layout_alignStart="@+id/edtPassword"
+        android:checked="false"
+        android:textColor="#8a8a8a" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Iniciar Sesión"
+        android:id="@+id/btnLogin"
+        android:layout_below="@+id/checkPassword"
+        android:layout_centerHorizontal="true" />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageEmail1"
-        android:layout_above="@+id/edtPassword"
-        android:layout_below="@+id/imageMain"
-        android:layout_alignStart="@+id/imagePassword"
-        android:src="@drawable/email" />
+        android:id="@+id/imageEmail"
+        android:src="@drawable/email"
+        android:layout_alignTop="@+id/edtEmail"
+        android:layout_toStartOf="@+id/edtEmail"
+        android:layout_above="@+id/edtPassword" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imagePassword"
+        android:layout_above="@+id/checkPassword"
+        android:layout_below="@+id/imageEmail"
+        android:layout_alignEnd="@+id/imageEmail"
+        android:src="@drawable/lock"
+        android:layout_alignStart="@+id/imageEmail" />
 
 </RelativeLayout>
