@@ -73,6 +73,8 @@ public class RegisterActivity extends Activity {
                     // Una vez guardados los datos en la BD, se puede acceder a la siguiente activity
                     Intent intentLogin = new Intent(RegisterActivity.this, FoldersActivity.class);
                     startActivity(intentLogin);
+                    // Cerramos la actividad para que el usuario no pueda regresar a esta actividad presionando el boton Atrás
+                    finish();
                 }
             } else if (v.getId() == R.id.btnCancelar) {
                 // Si se pulsa el boton de Cancelar, se retrocede al Login y no se procede con el registro

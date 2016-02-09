@@ -67,6 +67,8 @@ public class LoginActivity extends Activity {
                     // Si el login es correcto, pasa a la siguiente pantalla
                     Intent intentLogin = new Intent(LoginActivity.this, FoldersActivity.class);
                     startActivity(intentLogin);
+                    // Cerramos la actividad para que el usuario no pueda regresar a esta actividad presionando el boton Atrás
+                    finish();
                 } else {
                     Toast.makeText(LoginActivity.this, "Error al iniciar sesión. Email o Contraseña incorrectos", Toast.LENGTH_SHORT).show();
                 }

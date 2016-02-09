@@ -6,15 +6,6 @@
     android:layout_height="match_parent"
     android:background="#ffffff">
 
-    <ImageView
-        android:layout_width="496px"
-        android:layout_height="568px"
-        android:id="@+id/imageSplash"
-        android:src="@drawable/photo_selector_logo2"
-        android:layout_marginTop="23dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
     <com.wang.avi.AVLoadingIndicatorView
         android:id="@+id/avloadingIndicatorView"
         android:layout_width="wrap_content"
@@ -22,9 +13,19 @@
         android:visibility="visible"
         app:indicator="BallZigZagDeflect"
         app:indicator_color="#FF078A7E"
-        android:layout_marginTop="78dp"
         android:focusable="false"
-        android:layout_below="@+id/imageSplash"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="105dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageSplash"
+        android:src="@drawable/photo_selector_logo_1"
+        android:layout_gravity="center"
+        android:layout_marginTop="84dp"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
