@@ -3,12 +3,13 @@ package com.example.mario.photoselector;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.mario.photoselector.bd.PhotoSelectorDatabase;
 
 /**
  * Created by Mario on 03/02/2016.
@@ -19,8 +20,8 @@ public class RegisterActivity extends Activity {
     Button btnSave, btnCancel;
     EditText edtUser, edtMailRegister, edtPass1, edtPass2;
 
-    // Declarar instancia de la clase de la BD de Usuarios (Id, nombreUsuario, email, contraseña)
-    LoginDatabase loginDatabase;
+    // Declarar instancia de la clase de la BD
+    PhotoSelectorDatabase photoSelectorDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,9 +30,9 @@ public class RegisterActivity extends Activity {
         setContentView(R.layout.activity_register);
 
         // Crear instancia de la BD en SQLite
-        loginDatabase = new LoginDatabase(this);
+        photoSelectorDatabase = new PhotoSelectorDatabase(this);
         // Se abre la BD
-        loginDatabase = loginDatabase.open();
+        photoSelectorDatabase = photoSelectorDatabase.open();
 
         // Referenciar componentes de la interfaz
         btnSave = (Button) findViewById(R.id.btnGuardar);
@@ -68,11 +69,11 @@ public class RegisterActivity extends Activity {
                     return;
                 } else {
                     //Se guardan los datos en la BD
-                    loginDatabase.insertEntry(user, mail, password1);
+                    photoSelectorDatabase.insertEntry(user, mail, password1);
                     Toast.makeText(getApplicationContext(), "¡Su cuenta ha sido registrada con éxito!", Toast.LENGTH_LONG).show();
                     // Una vez guardados los datos en la BD, se puede acceder a la siguiente activity
-                    Intent intentLogin = new Intent(RegisterActivity.this, FoldersActivity.class);
-                    startActivity(intentLogin);
+                    Intent intentRegister = new Intent(RegisterActivity.this, LoginActivity.class);
+                    startActivity(intentRegister);
                     // Cerramos la actividad para que el usuario no pueda regresar a esta actividad presionando el boton Atrás
                     finish();
                 }
@@ -89,6 +90,6 @@ public class RegisterActivity extends Activity {
     protected void onDestroy() {
         super.onDestroy();
         // Se cierra la BD
-        loginDatabase.close();
+        photoSelectorDatabase.close();
     }
 }

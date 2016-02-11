@@ -4,4 +4,5 @@
     <color name="colorPrimaryDark">#078a7e</color>
     <color name="colorAccent">#08ae9e</color>
     <color name="primary_dark_material_light">#08ae9e</color>
+    <color name="colorActionBarTitle">#FFFFFF</color>
 </resources>

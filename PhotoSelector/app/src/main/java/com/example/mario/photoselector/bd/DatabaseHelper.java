@@ -1,4 +1,4 @@
-package com.example.mario.photoselector;
+package com.example.mario.photoselector.bd;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -18,7 +18,10 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     // Creacion de la BD mediante la ejecución del script SQL que contiene las tablas de la BD
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(LoginDatabase.SQL_CREATE);
+        db.execSQL(PhotoSelectorDatabase.SQL_CREATE_USUARIO);
+        /*db.execSQL(PhotoSelectorDatabase.SQL_CREATE_FOTOS);
+        db.execSQL(PhotoSelectorDatabase.SQL_CREATE_CARPETA);
+        db.execSQL(PhotoSelectorDatabase.SQL_CREATE_USUARIOCARPETA);*/
     }
 
     // Si se cambia la BD entre versiones, debería ejecutarse aquí el script de migración

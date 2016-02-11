@@ -67,7 +67,7 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Iniciar Sesión"
+        android:text="@string/btnLogin"
         android:id="@+id/btnLogin"
         android:layout_above="@+id/btnRegistrar"
         android:layout_alignEnd="@+id/edtPassword"
@@ -94,7 +94,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="¿Olvidaste la contraseña?"
+        android:text="@string/btnRecuperar"
         android:id="@+id/btnRecuperar"
         android:layout_above="@+id/checkPassword"
         android:layout_toEndOf="@+id/imagePassword" />
