@@ -5,6 +5,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import java.util.concurrent.ThreadPoolExecutor;
+
 /**
  * Created by Mario on 04/02/2016.
  */
@@ -28,13 +30,14 @@ public class PhotoSelectorDatabase {
         private static final String IDFOTOS_COLUMN = "idFoto";
         private static final String FOTO_COLUMN = "nombreFoto";
         private static final String VALIDA_COLUMN = "valida";
+        private static final String URI_COLUMN = "uri";
     }
 
-    private class carpetasDBInfo {
-        private static final String TABLE_NAME = "Carpeta";
-        private static final String IDCARPETA_COLUMN = "idCarpeta";
-        private static final String CARPETA_COLUMN = "nombreCarpeta";
-        private static final String FECHACREACION_COLUMN = "fechaCreacion";
+    public class carpetasDBInfo {
+        public static final String TABLE_NAME = "Carpeta";
+        public static final String IDCARPETA_COLUMN = "idCarpeta";
+        public static final String CARPETA_COLUMN = "nombreCarpeta";
+        public static final String FECHACREACION_COLUMN = "fechaCreacion";
     }
 
     private class usuarioCarpetaDBInfo {
@@ -50,7 +53,8 @@ public class PhotoSelectorDatabase {
     // Declaracion de la constante SQL_CREATE_FOTOS que contiene el script de creacion de la tabla Fotos en la BD
     public static final String SQL_CREATE_FOTOS = "CREATE TABLE " + fotosDBInfo.TABLE_NAME +
             " ( " + fotosDBInfo.IDFOTOS_COLUMN + " INTEGER PRIMARY KEY AUTOINCREMENT, " + fotosDBInfo.FOTO_COLUMN +
-            " TEXT NOT NULL " + fotosDBInfo.VALIDA_COLUMN + " INTEGER, " + "FOREIGN KEY (" + fotosDBInfo.IDFOTOS_COLUMN +
+            " TEXT NOT NULL, " + fotosDBInfo.VALIDA_COLUMN + " INTEGER NOT NULL, " + fotosDBInfo.URI_COLUMN +
+            " TEXT NOT NULL, " + "FOREIGN KEY (" + fotosDBInfo.IDFOTOS_COLUMN +
             ") REFERENCES " + usuariosDBInfo.TABLE_NAME + " (" + usuariosDBInfo.IDUSUARIO_COLUMN + "), " +
             "FOREIGN KEY (" + fotosDBInfo.IDFOTOS_COLUMN + ") REFERENCES " + carpetasDBInfo.TABLE_NAME +
             "(" + carpetasDBInfo.IDCARPETA_COLUMN + ")); ";
@@ -94,7 +98,7 @@ public class PhotoSelectorDatabase {
     }
 
     // Método para obtener la dupla email/contraseña para validar al usuario que ha iniciado sesión
-    public Cursor getSingleEntry() {
+    public Cursor getUsuariosBD() {
         db = dbHelper.getReadableDatabase();
         String[] columnasUsuario = {usuariosDBInfo.USER_COLUMN, usuariosDBInfo.EMAIL_COLUMN, usuariosDBInfo.PASS_COLUMN};
         Cursor cursor = db.query(usuariosDBInfo.TABLE_NAME, columnasUsuario, null, null, null, null, null);
@@ -114,8 +118,23 @@ public class PhotoSelectorDatabase {
 
     }
 
+    public Cursor getCarpetasBD() {
+        db = dbHelper.getReadableDatabase();
+        String[] columnasCarpeta = {carpetasDBInfo.IDCARPETA_COLUMN, carpetasDBInfo.CARPETA_COLUMN, carpetasDBInfo.FECHACREACION_COLUMN};
+        Cursor cursor = db.query(carpetasDBInfo.TABLE_NAME, columnasCarpeta, null, null, null, null, null);
+        return cursor;
+        //return (db.rawQuery("SELECT * FROM " + carpetasDBInfo.TABLE_NAME, null));
+    }
+
+
+    public Cursor getById(String id) {
+        String[] args = {id};
+        db = dbHelper.getReadableDatabase();
+        return(db.rawQuery("SELECT * FROM " + carpetasDBInfo.TABLE_NAME + " WHERE " + carpetasDBInfo.IDCARPETA_COLUMN + " =?", args));
+    }
+
     // Método para guardar los valores insertados en la BD
-    public void insertEntry(String user, String mail, String password) {
+    public void insertUsuariosBD(String user, String mail, String password) {
         ContentValues cValues = new ContentValues();
         // Asignar valores para cada fila de la tabla
         cValues.put(usuariosDBInfo.USER_COLUMN, user);
@@ -125,8 +144,15 @@ public class PhotoSelectorDatabase {
         db.insert(usuariosDBInfo.TABLE_NAME, null, cValues);
     }
 
+    public void insertCarpetasBD(String folderName, String folderDate) {
+        ContentValues cValues = new ContentValues();
+        cValues.put(carpetasDBInfo.CARPETA_COLUMN, folderName);
+        cValues.put(carpetasDBInfo.FECHACREACION_COLUMN, folderDate);
+        db.insert(carpetasDBInfo.TABLE_NAME, carpetasDBInfo.IDCARPETA_COLUMN, cValues);
+    }
+
     // Método para actualizar los valores de la BD
-    public void updateEntry(String userName, String userMail, String userPassword, String newPassword) {
+    public void updateUsuariosBD(String userName, String userMail, String userPassword, String newPassword) {
         String consulta = usuariosDBInfo.USER_COLUMN + " = ? AND " + usuariosDBInfo.EMAIL_COLUMN + " = ? AND " + usuariosDBInfo.PASS_COLUMN + " = ?";
         String args[] = {userName, userMail, userPassword};
         ContentValues cValues = new ContentValues();
@@ -137,9 +163,23 @@ public class PhotoSelectorDatabase {
         db.update(usuariosDBInfo.TABLE_NAME, cValues, consulta, args);
     }
 
+    public void updateCarpetasBD(String idCarpeta, String nombreCarpeta, String fechaCarpeta) {
+        String consulta = carpetasDBInfo.IDCARPETA_COLUMN + " = ?";
+        String args[] = {idCarpeta};
+        ContentValues cValues = new ContentValues();
+        cValues.put(carpetasDBInfo.CARPETA_COLUMN, nombreCarpeta);
+        cValues.put(carpetasDBInfo.FECHACREACION_COLUMN, fechaCarpeta);
+        db.update(carpetasDBInfo.TABLE_NAME, cValues, consulta, args);
+    }
+
     // Método para eliminar registros de la BD
     public int deleteEntry(String idUsuario) {
         int numberOfEntriesDeleted = db.delete(usuariosDBInfo.TABLE_NAME, usuariosDBInfo.IDUSUARIO_COLUMN + "=?", new String[]{idUsuario});
         return numberOfEntriesDeleted;
+    }
+
+    public void deleteCarpetasBD(String idCarpeta) {
+        db = dbHelper.getWritableDatabase();
+        db.delete(carpetasDBInfo.TABLE_NAME, carpetasDBInfo.IDCARPETA_COLUMN + "=?", new String[]{idCarpeta});
     }
 }

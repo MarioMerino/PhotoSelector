@@ -19,9 +19,9 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(PhotoSelectorDatabase.SQL_CREATE_USUARIO);
-        /*db.execSQL(PhotoSelectorDatabase.SQL_CREATE_FOTOS);
         db.execSQL(PhotoSelectorDatabase.SQL_CREATE_CARPETA);
-        db.execSQL(PhotoSelectorDatabase.SQL_CREATE_USUARIOCARPETA);*/
+        db.execSQL(PhotoSelectorDatabase.SQL_CREATE_FOTOS);
+        db.execSQL(PhotoSelectorDatabase.SQL_CREATE_USUARIOCARPETA);
     }
 
     // Si se cambia la BD entre versiones, debería ejecutarse aquí el script de migración

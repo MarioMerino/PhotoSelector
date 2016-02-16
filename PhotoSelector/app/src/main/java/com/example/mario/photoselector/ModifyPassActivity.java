@@ -87,7 +87,7 @@ public class ModifyPassActivity extends AppCompatActivity{
                     Toast.makeText(getApplicationContext(), header, Toast.LENGTH_SHORT).show();
                 } else {
                     // Se procede con la actualización de los datos de la BD introducidos (actualizar contraseña)
-                    photoSelectorDatabase.updateEntry(userName, userMail, userPassword, newPass);
+                    photoSelectorDatabase.updateUsuariosBD(userName, userMail, userPassword, newPass);
                     Toast.makeText(ModifyPassActivity.this, "¡La contraseña se actualizó con éxito!", Toast.LENGTH_LONG).show();
                     // Una vez guardados los datos en la BD, se puede acceder a la siguiente activity
                     Intent intentPass = new Intent(ModifyPassActivity.this, FoldersActivity.class);

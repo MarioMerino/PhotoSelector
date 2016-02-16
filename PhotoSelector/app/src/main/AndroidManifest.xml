@@ -45,6 +45,8 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity android:name=".FolderOptions" />
+        <activity android:name=".FolderGallery" />
 
     </application>
 

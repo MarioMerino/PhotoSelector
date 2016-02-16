@@ -10,15 +10,22 @@
     <string name="btnGuardar">Guardar</string>
     <string name="btnCancelar">Cancelar</string>
 
-    <!-- Strings de Action Bar -->
+    <!-- Strings de Action Bar folders_activity.xml -->
     <string name="action_settings">Modificar contraseña</string>
     <string name="title_activity_folders">FoldersActivity</string>
     <string name="action_autorenew">AutoRenew</string>
     <string name="action_logout">Cerrar sesión</string>
 
+    <!-- Strings de Action Bar activity_optionsfolder.xml -->
+    <string name="action_delete">Delete</string>
+
     <!-- Strings de modifypass_activity.xml -->
     <string name="btnGuardarPass">Guardar</string>
 
+    <!-- Strings de activity_optionsfolder.xml -->
+    <string name="txtEditar">Cambiar nombre</string>
+    <string name="txtInvitar">Invitar a personas</string>
+    <string name="btnVotacion">Realizar votación</string>
 
 
 </resources>

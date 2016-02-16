@@ -60,11 +60,11 @@ public class LoginActivity extends Activity {
             String email = edtMail.getText().toString();
             String password1 = edtPass.getText().toString();
             // Se cargan las contraseñas para los respectivos emails registrados en la BD
-            Cursor c = photoSelectorDatabase.getSingleEntry();
+            Cursor c = photoSelectorDatabase.getUsuariosBD();
             c.moveToFirst();
             boolean loginStatus = false; // Variable de estado, para indicar cuando se puede iniciar sesion
             String user = "";
-            //String cargarPassword = photoSelectorDatabase.getSingleEntry(email);
+
             if (v.getId() == R.id.btnLogin) {
                 do {
                     if(email.equals(c.getString(1)) && password1.equals(c.getString(2))) {

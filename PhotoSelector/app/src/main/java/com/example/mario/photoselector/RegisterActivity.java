@@ -69,7 +69,7 @@ public class RegisterActivity extends Activity {
                     return;
                 } else {
                     //Se guardan los datos en la BD
-                    photoSelectorDatabase.insertEntry(user, mail, password1);
+                    photoSelectorDatabase.insertUsuariosBD(user, mail, password1);
                     Toast.makeText(getApplicationContext(), "¡Su cuenta ha sido registrada con éxito!", Toast.LENGTH_LONG).show();
                     // Una vez guardados los datos en la BD, se puede acceder a la siguiente activity
                     Intent intentRegister = new Intent(RegisterActivity.this, LoginActivity.class);

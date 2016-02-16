@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FolderGallery">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?colorPrimary"
+            android:elevation="4dp"
+            android:theme="@style/Toolbar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            android:layout_weight="0.63" />
+
+        <GridView
+            android:layout_width="wrap_content"
+            android:layout_height="432dp"
+            android:id="@+id/gridPhotos"
+            android:layout_below="@+id/toolbar"
+            android:layout_alignParentStart="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btnVotacion"
+            android:id="@+id/btnRealizarVotacion"
+            android:layout_gravity="center_horizontal"
+            app:layout_anchor="@id/gridPhotos"
+            app:layout_anchorGravity="top|center|end"/>
+
+    </LinearLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/btnAddPhoto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:clickable="true"
+        android:src="@drawable/ic_add_white"
+        app:layout_anchor="@id/gridPhotos"
+        app:layout_anchorGravity="top|left|end" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/btnAddPhotoCamera"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:clickable="true"
+        android:src="@drawable/ic_add_a_photo_white"
+        app:layout_anchor="@id/gridPhotos"
+        app:layout_anchorGravity="top|right|end" />
+
+</android.support.design.widget.CoordinatorLayout>
