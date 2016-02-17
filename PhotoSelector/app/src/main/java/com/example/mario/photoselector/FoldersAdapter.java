@@ -52,7 +52,7 @@ public class FoldersAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 editarPosicion = position; // Variable para acceder en otras activities al elemento de la listView indicado (y eliminar/actualizar/insertar en él)
-                Intent intentOptions = new Intent(contexto, FolderOptions.class);
+                Intent intentOptions = new Intent(contexto, FolderOptionsActivity.class);
                 contexto.startActivity(intentOptions);
             }
         });

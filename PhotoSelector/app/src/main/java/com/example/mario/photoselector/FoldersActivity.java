@@ -167,7 +167,7 @@ public class FoldersActivity extends AppCompatActivity {
             //Toast.makeText(FoldersActivity.this, nombreFolder, Toast.LENGTH_SHORT).show();
             // Acceso al contenido de la carpeta
             editarPosicion = position;
-            Intent intentFolder = new Intent(context, FolderGallery.class);
+            Intent intentFolder = new Intent(context, FolderGalleryActivity.class);
             context.startActivity(intentFolder);
         }
     };

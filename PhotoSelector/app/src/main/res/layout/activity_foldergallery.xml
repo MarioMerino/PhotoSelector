@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FolderGallery">
+    tools:context=".FolderGalleryActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -28,7 +28,16 @@
             android:layout_height="432dp"
             android:id="@+id/gridPhotos"
             android:layout_below="@+id/toolbar"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:layout_margin="5dp"
+            android:columnWidth="100dp"
+            android:drawSelectorOnTop="true"
+            android:gravity="center"
+            android:numColumns="auto_fit"
+            android:stretchMode="columnWidth"
+            android:verticalSpacing="5dp"
+            android:focusable="true"
+            android:clickable="true" />
 
         <Button
             android:layout_width="wrap_content"

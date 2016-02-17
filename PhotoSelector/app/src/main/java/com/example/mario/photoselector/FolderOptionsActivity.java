@@ -20,7 +20,7 @@ import java.util.Date;
 /**
  * Created by Mario on 13/02/2016.
  */
-public class FolderOptions extends AppCompatActivity {
+public class FolderOptionsActivity extends AppCompatActivity {
 
     // Declarar instancia de la clase de la BD
     PhotoSelectorDatabase photoSelectorDatabase;
