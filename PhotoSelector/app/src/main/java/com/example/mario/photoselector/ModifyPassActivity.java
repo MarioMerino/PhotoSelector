@@ -32,14 +32,13 @@ public class ModifyPassActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.modifypass_activity);
+        setContentView(R.layout.activity_modifypass);
 
         // Se recuperan los datos de la tabla Usuario pasados en el Login mediante un objeto Bundle
         Bundle bundle = getIntent().getExtras();
         userName = bundle.getString("userName");
         userMail = bundle.getString("userMail");
         userPassword = bundle.getString("userPass");
-
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -102,7 +101,8 @@ public class ModifyPassActivity extends AppCompatActivity{
         // Definir accion para regresar a la activity hija (Volver Atrás)
         switch (item.getItemId()) {
             case android.R.id.home:
-                finish();
+                Intent intent = new Intent(ModifyPassActivity.this, FoldersActivity.class);
+                startActivity(intent);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

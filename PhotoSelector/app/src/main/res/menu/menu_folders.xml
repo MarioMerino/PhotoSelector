@@ -4,9 +4,9 @@
     tools:context="com.example.mario.photoselector.FoldersActivity">
 
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/action_pass"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
+        android:title="@string/action_pass"
         android:showAsAction="never"/>
 
     <item

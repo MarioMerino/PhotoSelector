@@ -15,7 +15,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/photo_selector_icon"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
@@ -50,6 +50,8 @@
         <activity android:name=".FolderOptionsActivity" />
         <activity android:name=".FolderGalleryActivity" />
         <activity android:name=".PhotoDetailsActivity" />
+        <activity android:name=".SwipePhotosActivity" />
+        <activity android:name=".FoldersVotesResultsActivity" />
 
     </application>
 

@@ -28,7 +28,6 @@ public class FolderOptionsActivity extends AppCompatActivity {
 
     private ImageView btnEditarCarpeta;
     private ImageView btnAnadirPersonas;
-    private EditText edtRenombrarCarpeta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -9,6 +9,7 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Parcelable;
 import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -16,6 +17,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.GridView;
 
 import com.example.mario.photoselector.bd.PhotoSelectorDatabase;
@@ -25,6 +28,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * Created by Mario on 15/02/2016.
@@ -37,6 +41,8 @@ public class FolderGalleryActivity extends AppCompatActivity {
     static GridView listaFotos;
     private FloatingActionButton btnPhotoCamera;
     private FloatingActionButton btnPhoto;
+    private Button btnVotacion;
+    //public static ArrayList<Photo> listaPhotos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +85,16 @@ public class FolderGalleryActivity extends AppCompatActivity {
                 Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 intent.setType("image/*");
                 startActivityForResult(Intent.createChooser(intent, "Seleccionar foto"), SELECT_FILE);
+            }
+        });
+
+        btnVotacion = (Button) findViewById(R.id.btnRealizarVotacion);
+        btnVotacion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FolderGalleryActivity.this, SwipePhotosActivity.class);
+                //intent.putExtra("photosGallery", PhotosAdapter.listaPhotos);
+                startActivity(intent);
             }
         });
     }

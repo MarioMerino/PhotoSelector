@@ -14,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageMain"
-        android:src="@drawable/photo_selector_logo_1"
+        android:src="@drawable/photo_selector_logo"
         android:layout_gravity="center"
         android:layout_marginBottom="41dp"
         android:layout_above="@+id/edtEmail"

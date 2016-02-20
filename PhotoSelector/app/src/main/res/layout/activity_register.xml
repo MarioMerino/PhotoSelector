@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageRegister"
-        android:src="@drawable/photo_selector_logo_1"
+        android:src="@drawable/photo_selector_logo"
         android:layout_marginTop="84dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />

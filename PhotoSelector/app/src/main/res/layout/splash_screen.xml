@@ -22,10 +22,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageSplash"
-        android:src="@drawable/photo_selector_logo_1"
+        android:src="@drawable/photo_selector_logo"
         android:layout_gravity="center"
-        android:layout_marginTop="84dp"
-        android:layout_alignParentTop="true"
+        android:layout_marginBottom="101dp"
+        android:layout_above="@+id/avloadingIndicatorView"
         android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

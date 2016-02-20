@@ -1,0 +1,17 @@
+<menu xmlns:photoselector="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    tools:context="com.example.mario.photoselector.FoldersVotesResultsActivity">
+
+    <item
+        android:id="@+id/action_logout"
+        android:title="@string/action_logout"
+        android:showAsAction="never" />
+
+    <item android:id="@+id/action_goback"
+    android:orderInCategory="100"
+    android:title="@string/action_goback"
+    android:showAsAction="never" />
+
+
+</menu>

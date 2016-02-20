@@ -45,7 +45,7 @@ public class FoldersActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.folders_activity);
+        setContentView(R.layout.activity_folders);
 
         // Crear instancia de la BD en SQLite
         photoSelectorDatabase = new PhotoSelectorDatabase(context);
@@ -184,7 +184,7 @@ public class FoldersActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         // Definir acciones para los botones de la Action Bar
         switch (item.getItemId()) {
-            case R.id.action_settings:
+            case R.id.action_pass:
                 openSettings();
                 return true;
             case R.id.action_logout:
@@ -197,9 +197,29 @@ public class FoldersActivity extends AppCompatActivity {
     }
 
     private void closeSession() {
-        Intent intentSession = new Intent(FoldersActivity.this, LoginActivity.class);
-        startActivity(intentSession);
-        finish();
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
+        // Titulo del AlertDialog
+        alertDialogBuilder.setTitle("¿Seguro que desea cerrar sesión?");
+
+        alertDialogBuilder
+                .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent intentLogin =new Intent(FoldersActivity.this, LoginActivity.class);
+                        startActivity(intentLogin);
+                    }
+                })
+                .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+        // create alert dialog
+        AlertDialog alertDialog = alertDialogBuilder.create();
+
+        // show it
+        alertDialog.show();
     }
 
     public void openSettings() {

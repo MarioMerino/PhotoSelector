@@ -14,9 +14,6 @@ public class Photo {
 
     public Photo() {
         super();
-        this.foto = foto;
-        this.nombreFoto = nombreFoto;
-        this.esValidaFoto = esValidaFoto;
     }
 
     public Bitmap getFoto() {
